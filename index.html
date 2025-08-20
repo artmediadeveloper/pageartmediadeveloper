@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artmedia Developer - Digital Consulting Agency</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@7.22.9/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Navbar() {
+      return (
+        <nav className="bg-gray-900 text-white py-4 px-6 fixed w-full top-0 z-10 shadow-lg">
+          <div className="container mx-auto flex justify-between items-center">
+            <h1 className="text-2xl font-bold">Artmedia Developer</h1>
+            <ul className="flex space-x-6">
+              <li><a href="#home" className="hover:text-blue-400 transition">Home</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition">Services</a></li>
+              <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
+              <li><a href="#contact" className="hover:text-blue-400 transition">Contact</a></li>
+              <li><a href="#privacy" className="hover:text-blue-400 transition">Privacy Policy</a></li>
+              <li><a href="#terms" className="hover:text-blue-400 transition">Terms & Conditions</a></li>
+            </ul>
+          </div>
+        </nav>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section id="home" className="bg-gray-800 text-white h-screen flex items-center justify-center">
+          <div className="container mx-auto text-center px-6">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">Artmedia Developer</h2>
+            <p className="text-lg md:text-xl mb-6">Innovative Digital Solutions for Your Business Growth</p>
+            <a href="#services" className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition">
+              Explore Our Services
+            </a>
+          </div>
+        </section>
+      );
+    }
+
+    function Services() {
+      const services = [
+        {
+          title: "Software Management",
+          description: "Streamline your business operations with our comprehensive software management solutions, tailored to your needs.",
+        },
+        {
+          title: "Application Development",
+          description: "Custom-built applications designed to enhance user experience and drive business success across platforms.",
+        },
+        {
+          title: "GPS Solutions",
+          description: "Advanced GPS tracking and navigation systems to optimize logistics and improve operational efficiency.",
+        },
+      ];
+
+      return (
+        <section id="services" className="py-16 bg-gray-100">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function About() {
+      return (
+        <section id="about" className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-8">About Artmedia Developer</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
+              Founded in 2015, Artmedia Developer is a Malang-based digital consulting agency specializing in software management, application development, and GPS solutions. Our team of creative professionals is dedicated to helping businesses—from startups to established brands—achieve measurable results through innovative digital strategies.
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    function Contact() {
+      return (
+        <section id="contact" className="py-16 bg-gray-100">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
+            <div className="max-w-lg mx-auto text-center">
+              <p className="text-lg text-gray-600 mb-4">Ready to elevate your online presence? Get in touch with us!</p>
+              <p className="text-gray-600 mb-4">Email: contact@artmediadeveloper.com</p>
+              <p className="text-gray-600 mb-4">Phone: +62 341 123 456</p>
+              <p className="text-gray-600">Address: Jl. Inovasi No. 123, Malang, Indonesia</p>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function PrivacyPolicy() {
+      return (
+        <section id="privacy" className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Privacy Policy</h2>
+            <div className="max-w-3xl mx-auto text-gray-600">
+              <p className="mb-4">
+                At Artmedia Developer, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our services or visit our website.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Information We Collect</h3>
+              <p className="mb-4">
+                We may collect personal information such as your name, email address, and phone number when you contact us or use our services. We also collect non-personal data, such as website usage statistics, to improve our services.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">How We Use Your Information</h3>
+              <p className="mb-4">
+                Your information is used to provide and improve our services, respond to inquiries, and communicate updates. We do not share your personal data with third parties except as required by law or with your consent.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Data Security</h3>
+              <p className="mb-4">
+                We implement industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Your Rights</h3>
+              <p className="mb-4">
+                You have the right to access, update, or delete your personal information. Contact us at contact@artmediadeveloper.com to exercise these rights.
+              </p>
+              <p>
+                This policy is effective as of August 20, 2025. We may update it periodically, and changes will be posted on this page.
+              </p>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function TermsConditions() {
+      return (
+        <section id="terms" className="py-16 bg-gray-100">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Terms and Conditions</h2>
+            <div className="max-w-3xl mx-auto text-gray-600">
+              <p className="mb-4">
+                Welcome to Artmedia Developer. By using our website or services, you agree to comply with and be bound by the following terms and conditions.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Use of Services</h3>
+              <p className="mb-4">
+                Our services, including software management, application development, and GPS solutions, are provided "as is." We strive to deliver high-quality services but do not guarantee uninterrupted or error-free performance.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Intellectual Property</h3>
+              <p className="mb-4">
+                All content, designs, and software provided by Artmedia Developer are our intellectual property or licensed to us. You may not reproduce or distribute them without permission.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Limitation of Liability</h3>
+              <p className="mb-4">
+                Artmedia Developer is not liable for any indirect, incidental, or consequential damages arising from the use of our services.
+              </p>
+              <h3 className="text-xl font-semibold mb-2">Governing Law</h3>
+              <p className="mb-4">
+                These terms are governed by the laws of Indonesia. Any disputes will be resolved in the courts of Malang, Indonesia.
+              </p>
+              <p>
+                These terms are effective as of August 20, 2025. We reserve the right to update them, and changes will be posted on this page.
+              </p>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="bg-gray-900 text-white py-6">
+          <div className="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Artmedia Developer. All rights reserved.</p>
+            <p className="mt-2">
+              <a href="#privacy" className="hover:text-blue-400 mx-2">Privacy Policy</a> | 
+              <a href="#terms" className="hover:text-blue-400 mx-2">Terms & Conditions</a>
+            </p>
+          </div>
+        </footer>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Navbar />
+          <Hero />
+          <Services />
+          <About />
+          <Contact />
+          <PrivacyPolicy />
+          <TermsConditions />
+          <Footer />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
