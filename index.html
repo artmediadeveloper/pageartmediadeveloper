@@ -1,255 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artmedia Developer - Digital Consulting Agency</title>
-  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.22.9/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Artmedia Developer - Beranda</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-  <div id="root"></div>
-  <div id="fallback" style="display: none; text-align: center; padding: 20px; color: red;">
-    <p>Failed to load website. Please check your internet connection or try again later.</p>
-  </div>
+  <nav class="bg-gray-900 text-white py-4 px-6 fixed w-full top-0 z-10 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Artmedia Developer</h1>
+      <ul class="flex space-x-6">
+        <li><a href="index.html" class="hover:text-blue-400 transition font-semibold">Beranda</a></li>
+        <li><a href="services.html" class="hover:text-blue-400 transition">Layanan</a></li>
+        <li><a href="about.html" class="hover:text-blue-400 transition">Tentang</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400 transition">Kontak</a></li>
+        <li><a href="privacy.html" class="hover:text-blue-400 transition">Kebijakan Privasi</a></li>
+        <li><a href="terms.html" class="hover:text-blue-400 transition">Syarat & Ketentuan</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <script type="text/babel" defer>
-    // Debugging logs
-    console.log("Checking dependencies...");
-    console.log("Babel loaded:", typeof Babel !== "undefined");
-    console.log("React loaded:", typeof React !== "undefined");
-    console.log("ReactDOM loaded:", typeof ReactDOM !== "undefined");
+  <section class="bg-gray-800 text-white h-screen flex items-center justify-center">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Artmedia Developer</h2>
+      <p class="text-lg md:text-xl mb-6">Solusi Digital Inovatif untuk Pertumbuhan Bisnis Anda</p>
+      <a href="services.html" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition">
+        Jelajahi Layanan Kami
+      </a>
+    </div>
+  </section>
 
-    // Fallback if React fails to load
-    if (typeof React === "undefined" || typeof ReactDOM === "undefined" || typeof Babel === "undefined") {
-      document.getElementById("root").style.display = "none";
-      document.getElementById("fallback").style.display = "block";
-    }
-
-    // Error Boundary Component
-    class ErrorBoundary extends React.Component {
-      state = { hasError: false };
-
-      static getDerivedStateFromError(error) {
-        return { hasError: true };
-      }
-
-      render() {
-        if (this.state.hasError) {
-          return (
-            <div className="text-center py-10">
-              <h2 className="text-2xl font-bold text-red-600">Something went wrong.</h2>
-              <p>Please check the console for details or contact support.</p>
-            </div>
-          );
-        }
-        return this.props.children;
-      }
-    }
-
-    function Navbar() {
-      return (
-        <nav className="bg-gray-900 text-white py-4 px-6 fixed w-full top-0 z-10 shadow-lg">
-          <div className="container mx-auto flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Artmedia Developer</h1>
-            <ul className="flex space-x-6">
-              <li><a href="#home" className="hover:text-blue-400 transition">Home</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition">Services</a></li>
-              <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
-              <li><a href="#contact" className="hover:text-blue-400 transition">Contact</a></li>
-              <li><a href="#privacy" className="hover:text-blue-400 transition">Privacy Policy</a></li>
-              <li><a href="#terms" className="hover:text-blue-400 transition">Terms & Conditions</a></li>
-            </ul>
-          </div>
-        </nav>
-      );
-    }
-
-    function Hero() {
-      return (
-        <section id="home" className="bg-gray-800 text-white h-screen flex items-center justify-center">
-          <div className="container mx-auto text-center px-6">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Artmedia Developer</h2>
-            <p className="text-lg md:text-xl mb-6">Innovative Digital Solutions for Your Business Growth</p>
-            <a href="#services" className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition">
-              Explore Our Services
-            </a>
-          </div>
-        </section>
-      );
-    }
-
-    function Services() {
-      const services = [
-        {
-          title: "Manajemen Perangkat Lunak",
-          description: "Sederhanakan operasi bisnis Anda dengan solusi manajemen perangkat lunak yang disesuaikan dengan kebutuhan Anda.",
-        },
-        {
-          title: "Pengembangan Aplikasi",
-          description: "Aplikasi kustom yang dirancang untuk meningkatkan pengalaman pengguna dan mendorong kesuksesan bisnis di berbagai platform.",
-        },
-        {
-          title: "Solusi GPS",
-          description: "Sistem pelacakan dan navigasi GPS canggih untuk mengoptimalkan logistik dan meningkatkan efisiensi operasional.",
-        },
-      ];
-
-      return (
-        <section id="services" className="py-16 bg-gray-100">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Layanan Kami</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    function About() {
-      return (
-        <section id="about" className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Tentang Artmedia Developer</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
-              Didirikan pada tahun 2015, Artmedia Developer adalah agensi konsultan digital berbasis di Malang yang berspesialisasi dalam manajemen perangkat lunak, pengembangan aplikasi, dan solusi GPS. Tim profesional kreatif kami berdedikasi untuk membantu bisnis—dari startup hingga merek besar—mencapai hasil yang terukur melalui strategi digital yang inovatif.
-            </p>
-          </div>
-        </section>
-      );
-    }
-
-    function Contact() {
-      return (
-        <section id="contact" className="py-16 bg-gray-100">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Hubungi Kami</h2>
-            <div className="max-w-lg mx-auto text-center">
-              <p className="text-lg text-gray-600 mb-4">Siap meningkatkan kehadiran online Anda? Hubungi kami sekarang!</p>
-              <p className="text-gray-600 mb-4">Email: contact@artmediadeveloper.com</p>
-              <p className="text-gray-600 mb-4">Telepon: +62 341 123 456</p>
-              <p className="text-gray-600">Alamat: Jl. Inovasi No. 123, Malang, Indonesia</p>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    function PrivacyPolicy() {
-      return (
-        <section id="privacy" className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Kebijakan Privasi</h2>
-            <div className="max-w-3xl mx-auto text-gray-600">
-              <p className="mb-4">
-                Di Artmedia Developer, kami menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi data Anda saat Anda berinteraksi dengan layanan atau situs web kami.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Informasi yang Kami Kumpulkan</h3>
-              <p className="mb-4">
-                Kami dapat mengumpulkan informasi pribadi seperti nama, alamat email, dan nomor telepon saat Anda menghubungi kami atau menggunakan layanan kami. Kami juga mengumpulkan data non-pribadi, seperti statistik penggunaan situs web, untuk meningkatkan layanan kami.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Cara Kami Menggunakan Informasi Anda</h3>
-              <p className="mb-4">
-                Informasi Anda digunakan untuk menyediakan dan meningkatkan layanan kami, menjawab pertanyaan, dan mengomunikasikan pembaruan. Kami tidak membagikan data pribadi Anda dengan pihak ketiga kecuali diwajibkan oleh hukum atau dengan persetujuan Anda.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Keamanan Data</h3>
-              <p className="mb-4">
-                Kami menerapkan langkah-langkah keamanan standar industri untuk melindungi data Anda dari akses, perubahan, atau pengungkapan yang tidak sah.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Hak Anda</h3>
-              <p className="mb-4">
-                Anda berhak untuk mengakses, memperbarui, atau menghapus informasi pribadi Anda. Hubungi kami di contact@artmediadeveloper.com untuk menggunakan hak ini.
-              </p>
-              <p>
-                Kebijakan ini berlaku efektif per 20 Agustus 2025. Kami dapat memperbaruinya secara berkala, dan perubahan akan diposting di halaman ini.
-              </p>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    function TermsConditions() {
-      return (
-        <section id="terms" className="py-16 bg-gray-100">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Syarat dan Ketentuan</h2>
-            <div className="max-w-3xl mx-auto text-gray-600">
-              <p className="mb-4">
-                Selamat datang di Artmedia Developer. Dengan menggunakan situs web atau layanan kami, Anda setuju untuk mematuhi dan terikat pada syarat dan ketentuan berikut.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Penggunaan Layanan</h3>
-              <p className="mb-4">
-                Layanan kami, termasuk manajemen perangkat lunak, pengembangan aplikasi, dan solusi GPS, disediakan "sebagaimana adanya." Kami berusaha memberikan layanan berkualitas tinggi tetapi tidak menjamin kinerja tanpa gangguan atau bebas dari kesalahan.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Hak Kekayaan Intelektual</h3>
-              <p className="mb-4">
-                Semua konten, desain, dan perangkat lunak yang disediakan oleh Artmedia Developer adalah milik intelektual kami atau dilisensikan kepada kami. Anda tidak boleh mereproduksi atau mendistribusikannya tanpa izin.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Batasan Tanggung Jawab</h3>
-              <p className="mb-4">
-                Artmedia Developer tidak bertanggung jawab atas kerusakan tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan layanan kami.
-              </p>
-              <h3 className="text-xl font-semibold mb-2">Hukum yang Berlaku</h3>
-              <p className="mb-4">
-                Syarat ini diatur oleh hukum Indonesia. Segala sengketa akan diselesaikan di pengadilan Malang, Indonesia.
-              </p>
-              <p>
-                Syarat ini berlaku efektif per 20 Agustus 2025. Kami berhak memperbarui syarat ini, dan perubahan akan diposting di halaman ini.
-              </p>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    function Footer() {
-      return (
-        <footer className="bg-gray-900 text-white py-6">
-          <div className="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Artmedia Developer. Hak cipta dilindungi.</p>
-            <p className="mt-2">
-              <a href="#privacy" className="hover:text-blue-400 mx-2">Kebijakan Privasi</a> | 
-              <a href="#terms" className="hover:text-blue-400 mx-2">Syarat & Ketentuan</a>
-            </p>
-          </div>
-        </footer>
-      );
-    }
-
-    function App() {
-      return (
-        <ErrorBoundary>
-          <div>
-            <Navbar />
-            <Hero />
-            <Services />
-            <About />
-            <Contact />
-            <PrivacyPolicy />
-            <TermsConditions />
-            <Footer />
-          </div>
-        </ErrorBoundary>
-      );
-    }
-
-    try {
-      const root = ReactDOM.createRoot(document.getElementById('root'));
-      root.render(<App />);
-    } catch (error) {
-      console.error("Rendering failed:", error);
-      document.getElementById("root").style.display = "none";
-      document.getElementById("fallback").style.display = "block";
-    }
-  </script>
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; 2025 Artmedia Developer. Hak cipta dilindungi.</p>
+      <p class="mt-2">
+        <a href="privacy.html" class="hover:text-blue-400 mx-2">Kebijakan Privasi</a> | 
+        <a href="terms.html" class="hover:text-blue-400 mx-2">Syarat & Ketentuan</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
