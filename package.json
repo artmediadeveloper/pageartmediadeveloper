@@ -1,25 +1,30 @@
 {
   "name": "artmediadeveloper.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "npm run build && npm run export && gh-pages -d out"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/artmediadeveloper/artmediadeveloper.github.io.git"
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "motion": "^12.23.12",
+    "next": "15.5.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
-  "author": "Dedyk Suntoro Atmojo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/artmediadeveloper/artmediadeveloper.github.io/issues"
-  },
-  "homepage": "https://artmediadeveloper.github.io",
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2",
+    "gh-pages": "^6.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
