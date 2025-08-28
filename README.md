@@ -1,1 +1,0 @@
-# artmediadeveloper.github.com
