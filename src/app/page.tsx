@@ -108,8 +108,22 @@ const Hero = ({ onNavigate }: { onNavigate: (route: string) => void }) => (
 const LogoBar = () => (
   <Section id="logos">
     <div className="flex items-center justify-between gap-6 flex-wrap opacity-70">
-      {["Techno", "AeroFleet", "GoRetail", "Finix", "LogiTrack"].map((brand) => (
-        <div key={brand} className="text-sm md:text-base font-semibold tracking-wide">{brand}</div>
+      {[
+        { name: "Kehadiranmu", href: "https://github.com/dedyksuntoro/kehadiranmu" },
+        { name: "API Kehadiranmu", href: "https://github.com/dedyksuntoro/api_kehadiranmu" },
+        { name: "RainCast", href: "https://github.com/dedyksuntoro/raincast" },
+      { name: "Traccar Api", href: "https://pub.dev/packages/traccar_api" },
+      { name: "Notification Sniffer ", href: "https://pub.dev/packages/flutter_notification_sniffer" },
+      ].map((brand) => (
+      <a
+        key={brand.name}
+        href={brand.href}
+        className="text-sm md:text-base font-semibold tracking-wide hover:underline focus:outline-none focus:ring-2 focus:ring-gray-900 rounded"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {brand.name}
+      </a>
       ))}
     </div>
   </Section>
