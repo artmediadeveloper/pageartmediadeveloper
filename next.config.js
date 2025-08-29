@@ -12,6 +12,9 @@ const nextConfig = {
  
   // Optional: Change the output directory `out` -> `dist`
   distDir: 'docs',
+
+  basePath: '/artmediadeveloper.github.io',
+  assetPrefix: '/artmediadeveloper.github.io',
 }
  
 module.exports = nextConfig
