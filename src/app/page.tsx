@@ -243,7 +243,8 @@ const Contact = () => (
         <p className="mt-3 text-gray-600">Isi formulir atau hubungi kami melalui email.
         </p>
         <div className="mt-6 space-y-2 text-gray-700">
-          <div><span className="font-medium">Email:</span> contact@artmediadeveloper.com</div>
+          <div><span className="font-medium">Email:</span> emailnyaartmedia@gmail.com</div>
+          <div><span className="font-medium">Whatsapp:</span> +62 85 6365 6307</div>
           <div><span className="font-medium">Lokasi:</span> Malang, Indonesia</div>
         </div>
       </div>
