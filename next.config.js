@@ -1,22 +1,22 @@
-// /**
-//  * @type {import('next').NextConfig}
-//  */
-// const nextConfig = {
-//     output: 'export',
-//     images: {
-//         unoptimized: true,
-//     },
-//     basePath: '',
-//     assetPrefix: '/',
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+    output: 'export',
+    images: {
+        unoptimized: true,
+    },
+    basePath: '',
+    assetPrefix: '/',
  
-//   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
-//   // trailingSlash: true,
+  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
+  // trailingSlash: true,
  
-//   // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-//   // skipTrailingSlashRedirect: true,
+  // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
+  // skipTrailingSlashRedirect: true,
  
-//   // Optional: Change the output directory `out` -> `dist`
-//   distDir: 'docs',
-// }
+  // Optional: Change the output directory `out` -> `dist`
+  distDir: 'docs',
+}
  
-// module.exports = nextConfig
+module.exports = nextConfig
