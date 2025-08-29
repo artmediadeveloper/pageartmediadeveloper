@@ -16,11 +16,10 @@ type NavLinkProps = {
 const NavLink = ({ label, route, current, onNavigate }: NavLinkProps) => (
   <button
     onClick={() => onNavigate(route)}
-    className={`px-3 py-2 rounded-xl text-sm md:text-base transition ${
-      current === route
-        ? "bg-gray-900 text-white shadow"
-        : "text-gray-700 hover:bg-gray-100"
-    }`}
+    className={`px-3 py-2 rounded-xl text-sm md:text-base transition ${current === route
+      ? "bg-gray-900 text-white shadow"
+      : "text-gray-700 hover:bg-gray-100"
+      }`}
     aria-current={current === route ? "page" : undefined}
   >
     {label}
@@ -224,7 +223,7 @@ const About = () => (
           </ul>
           <h3 className="mt-6 text-lg font-semibold">Teknologi Unggulan</h3>
           <div className="mt-3 flex flex-wrap gap-2 text-sm">
-            {["Flutter","React","Node.js","NestJS","PostgreSQL","GCP/AWS","Docker","Kubernetes"].map(t => (
+            {["Flutter", "React", "Node.js", "NestJS", "PostgreSQL", "GCP/AWS", "Docker", "Kubernetes"].map(t => (
               <span key={t} className="px-3 py-1 rounded-full bg-gray-100 border">{t}</span>
             ))}
           </div>
@@ -240,29 +239,76 @@ const Contact = () => (
       <div>
         <Badge>Kontak</Badge>
         <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">Mari diskusikan kebutuhan Anda</h2>
-        <p className="mt-3 text-gray-600">Isi formulir atau hubungi kami melalui email.
+        <p className="mt-3 text-gray-600">Isi formulir atau hubungi kami melalui kontak berikut.
         </p>
         <div className="mt-6 space-y-2 text-gray-700">
-          <div><span className="font-medium">Email:</span> emailnyaartmedia@gmail.com</div>
-          <div><span className="font-medium">Whatsapp:</span> +62 85 6365 6307</div>
+          <div>
+            <span className="font-medium">Email:</span>{" "}
+            <a href="mailto:emailnyaartmedia@gmail.com" className="hover:underline">
+              emailnyaartmedia@gmail.com
+            </a>
+          </div>
+            <div>
+            <span className="font-medium">Whatsapp:</span>{" "}
+            <a
+              href="https://wa.me/628563656307"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              +62 85 6365 6307
+            </a>
+            </div>
           <div><span className="font-medium">Lokasi:</span> Malang, Indonesia</div>
         </div>
       </div>
       <Card>
-        <form onSubmit={(e)=>{e.preventDefault(); alert('Terima kasih! Kami akan menghubungi Anda.');}} className="space-y-4">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const nama = (form.elements.namedItem("nama") as HTMLInputElement)?.value;
+            const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
+            const pesan = (form.elements.namedItem("pesan") as HTMLTextAreaElement)?.value;
+            const text = encodeURIComponent(
+              `Halo Artmedia Developer,\nSaya ingin konsultasi.\n*Nama:* ${nama}\n*Email:* ${email}\n*Pesan:* ${pesan}`
+            );
+            window.open(`https://wa.me/628563656307?text=${text}`, "_blank");
+          }}
+          className="space-y-4"
+        >
           <div>
             <label className="text-sm text-gray-600">Nama</label>
-            <input required type="text" className="mt-1 w-full rounded-2xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-900" placeholder="Nama lengkap" />
+            <input
+              required
+              type="text"
+              name="nama"
+              className="mt-1 w-full rounded-2xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
+              placeholder="Nama lengkap"
+            />
           </div>
           <div>
             <label className="text-sm text-gray-600">Email</label>
-            <input required type="email" className="mt-1 w-full rounded-2xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-900" placeholder="email@perusahaan.com" />
+            <input
+              required
+              type="email"
+              name="email"
+              className="mt-1 w-full rounded-2xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
+              placeholder="email@perusahaan.com"
+            />
           </div>
           <div>
             <label className="text-sm text-gray-600">Pesan</label>
-            <textarea required className="mt-1 w-full min-h-[120px] rounded-2xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-900" placeholder="Ceritakan tantangan Anda..." />
+            <textarea
+              required
+              name="pesan"
+              className="mt-1 w-full min-h-[120px] rounded-2xl border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
+              placeholder="Ceritakan tantangan Anda..."
+            />
           </div>
-          <button className="w-full px-5 py-3 rounded-2xl bg-gray-900 text-white font-medium shadow hover:shadow-md">Kirim</button>
+          <button className="w-full px-5 py-3 rounded-2xl bg-gray-900 text-white font-medium shadow hover:shadow-md">
+            Kirim
+          </button>
         </form>
       </Card>
     </div>
@@ -275,28 +321,46 @@ const Privacy = () => (
     <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">Privacy Policy</h2>
     <p className="mt-2 text-sm text-gray-500">Terakhir diperbarui: 21 Agustus 2025</p>
     <div className="mt-6 prose prose-gray max-w-none">
-      <h3>1. Informasi yang Kami Kumpulkan</h3>
-      <p>Kami dapat mengumpulkan data identitas (nama, email), data penggunaan situs, dan data teknis (IP, jenis perangkat, browser) untuk keperluan layanan dan peningkatan kualitas.</p>
-      <h3>2. Cara Kami Menggunakan Data</h3>
-      <ul>
-        <li>Menyediakan dan meningkatkan layanan.</li>
-        <li>Komunikasi terkait penawaran, pembaruan, dan dukungan.</li>
-        <li>Keamanan, pencegahan penipuan, dan kepatuhan hukum.</li>
-      </ul>
-      <h3>3. Cookie & Pelacakan</h3>
-      <p>Kami dapat menggunakan cookie/teknologi serupa untuk analitik dan personalisasi. Anda dapat mengatur preferensi melalui pengaturan browser.</p>
-      <h3>4. Berbagi Data</h3>
-      <p>Kami tidak menjual data pribadi. Data dapat dibagikan dengan penyedia layanan tepercaya sesuai kebutuhan operasional dan peraturan yang berlaku.</p>
-      <h3>5. Keamanan</h3>
-      <p>Kami menerapkan kontrol keamanan yang wajar untuk melindungi data, namun tidak ada sistem yang sepenuhnya aman.</p>
-      <h3>6. Hak Anda</h3>
-      <p>Anda berhak mengakses, memperbarui, atau menghapus data pribadi Anda. Hubungi kami di contact@artmediadeveloper.com.</p>
-      <h3>7. Transfer Internasional</h3>
-      <p>Jika pemrosesan melibatkan transfer lintas negara, kami akan memastikan perlindungan yang memadai sesuai regulasi.</p>
-      <h3>8. Perubahan Kebijakan</h3>
-      <p>Kami dapat memperbarui kebijakan ini dari waktu ke waktu. Versi terbaru akan ditampilkan di halaman ini.</p>
-      <h3>9. Kontak</h3>
-      <p>Artmedia Developer, Malang, Indonesia — contact@artmediadeveloper.com</p>
+      <ol className="list-decimal">
+        <li className="font-bold">Informasi yang Kami Kumpulkan</li>
+        <ul className="list-none">
+          <li>Kami dapat mengumpulkan data identitas (nama, email), data penggunaan situs, dan data teknis (IP, jenis perangkat, browser) untuk keperluan layanan dan peningkatan kualitas.</li>
+        </ul>
+        <li className="font-bold">Cara Kami Menggunakan Data</li>
+        <ul className="list-none">
+          <li>Menyediakan dan meningkatkan layanan.</li>
+          <li>Komunikasi terkait penawaran, pembaruan, dan dukungan.</li>
+          <li>Keamanan, pencegahan penipuan, dan kepatuhan hukum.</li>
+        </ul>
+        <li className="font-bold">Cookie & Pelacakan</li>
+        <ul className="list-none">
+          <li>Kami dapat menggunakan cookie/teknologi serupa untuk analitik dan personalisasi. Anda dapat mengatur preferensi melalui pengaturan browser.</li>
+        </ul>
+        <li className="font-bold">Berbagi Data</li>
+        <ul className="list-none">
+          <li>Kami tidak menjual data pribadi. Data dapat dibagikan dengan penyedia layanan tepercaya sesuai kebutuhan operasional dan peraturan yang berlaku.</li>
+        </ul>
+        <li className="font-bold">Keamanan</li>
+        <ul className="list-none">
+          <li>Kami menerapkan kontrol keamanan yang wajar untuk melindungi data, namun tidak ada sistem yang sepenuhnya aman.</li>
+        </ul>
+        <li className="font-bold">Hak Anda</li>
+        <ul className="list-none">
+          <li>Anda berhak mengakses, memperbarui, atau menghapus data pribadi Anda. Hubungi kami di contact@artmediadeveloper.com.</li>
+        </ul>
+        <li className="font-bold">Transfer Internasional</li>
+        <ul className="list-none">
+          <li>Jika pemrosesan melibatkan transfer lintas negara, kami akan memastikan perlindungan yang memadai sesuai regulasi.</li>
+        </ul>
+        <li className="font-bold">Perubahan Kebijakan</li>
+        <ul className="list-none">
+          <li>Kami dapat memperbarui kebijakan ini dari waktu ke waktu. Versi terbaru akan ditampilkan di halaman ini.</li>
+        </ul>
+        <li className="font-bold">Kontak</li>
+        <ul className="list-none">
+          <li>Artmedia Developer, Malang, Indonesia — emailnyaartmedia@gmail.com</li>
+        </ul>
+      </ol>
     </div>
   </Section>
 );
@@ -307,28 +371,52 @@ const Terms = () => (
     <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">Terms & Conditions</h2>
     <p className="mt-2 text-sm text-gray-500">Terakhir diperbarui: 21 Agustus 2025</p>
     <div className="mt-6 prose prose-gray max-w-none">
-      <h3>1. Penerimaan</h3>
-      <p>Dengan mengakses layanan/website Artmedia Developer, Anda setuju dengan Syarat & Ketentuan ini.</p>
-      <h3>2. Ruang Lingkup Layanan</h3>
-      <p>Layanan mencakup manajemen software, pengembangan aplikasi, serta solusi perangkat GPS sesuai proposal/kontrak proyek.</p>
-      <h3>3. Hak Kekayaan Intelektual</h3>
-      <p>Kode sumber, desain, dan materi lain yang dihasilkan selama proyek tunduk pada ketentuan hak milik sesuai perjanjian.</p>
-      <h3>4. Pembayaran & Penagihan</h3>
-      <p>Skema pembayaran, milestone, dan denda keterlambatan diatur pada proposal/kontrak yang disepakati.</p>
-      <h3>5. Kerahasiaan</h3>
-      <p>Kedua pihak wajib menjaga kerahasiaan informasi milik pihak lain selama dan setelah proyek berakhir.</p>
-      <h3>6. Batasan Tanggung Jawab</h3>
-      <p>Artmedia Developer tidak bertanggung jawab atas kerugian tidak langsung atau konsekuensial. Total tanggung jawab dibatasi pada nilai proyek terkait.</p>
-      <h3>7. Kepatuhan & Penggunaan yang Dilarang</h3>
-      <p>Pengguna dilarang menyalahgunakan layanan untuk aktivitas ilegal, termasuk namun tidak terbatas pada pelanggaran privasi, keamanan, dan hukum yang berlaku.</p>
-      <h3>8. Pengakhiran</h3>
-      <p>Keduapihak dapat mengakhiri kerja sama sesuai syarat pada perjanjian, termasuk kewajiban pembayaran dan pengembalian aset.</p>
-      <h3>9. Hukum yang Berlaku</h3>
-      <p>Syarat ini diatur oleh hukum Republik Indonesia. Sengketa akan diselesaikan secara musyawarah atau melalui mekanisme yang disepakati.</p>
-      <h3>10. Perubahan</h3>
-      <p>Kami dapat memperbarui S&K dari waktu ke waktu. Versi terbaru berlaku sejak tanggal diperbarui.</p>
-      <h3>11. Kontak</h3>
-      <p>Untuk pertanyaan terkait S&K, hubungi contact@artmediadeveloper.com.</p>
+      <ol className="list-decimal">
+        <li className="font-bold">Penerimaan</li>
+        <ul className="list-none">
+          <li>Dengan mengakses layanan/website Artmedia Developer, Anda setuju dengan Syarat & Ketentuan ini.</li>
+        </ul>
+        <li className="font-bold">Ruang Lingkup Layanan</li>
+        <ul className="list-none">
+          <li>Layanan mencakup manajemen software, pengembangan aplikasi, serta solusi perangkat GPS sesuai proposal/kontrak proyek.</li>
+        </ul>
+        <li className="font-bold">Hak Kekayaan Intelektual</li>
+        <ul className="list-none">
+          <li>Kode sumber, desain, dan materi lain yang dihasilkan selama proyek tunduk pada ketentuan hak milik sesuai perjanjian.</li>
+        </ul>
+        <li className="font-bold">Pembayaran & Penagihan</li>
+        <ul className="list-none">
+          <li>Skema pembayaran, milestone, dan denda keterlambatan diatur pada proposal/kontrak yang disepakati.</li>
+        </ul>
+        <li className="font-bold">Kerahasiaan</li>
+        <ul className="list-none">
+          <li>Kedua pihak wajib menjaga kerahasiaan informasi milik pihak lain selama dan setelah proyek berakhir.</li>
+        </ul>
+        <li className="font-bold">Batasan Tanggung Jawab</li>
+        <ul className="list-none">
+          <li>Artmedia Developer tidak bertanggung jawab atas kerugian tidak langsung atau konsekuensial. Total tanggung jawab dibatasi pada nilai proyek terkait.</li>
+        </ul>
+        <li className="font-bold">Kepatuhan & Penggunaan yang Dilarang</li>
+        <ul className="list-none">
+          <li>Pengguna dilarang menyalahgunakan layanan untuk aktivitas ilegal, termasuk namun tidak terbatas pada pelanggaran privasi, keamanan, dan hukum yang berlaku.</li>
+        </ul>
+        <li className="font-bold">Pengakhiran</li>
+        <ul className="list-none">
+          <li>Keduapihak dapat mengakhiri kerja sama sesuai syarat pada perjanjian, termasuk kewajiban pembayaran dan pengembalian aset.</li>
+        </ul>
+        <li className="font-bold">Hukum yang Berlaku</li>
+        <ul className="list-none">
+          <li>Syarat ini diatur oleh hukum Republik Indonesia. Sengketa akan diselesaikan secara musyawarah atau melalui mekanisme yang disepakati.</li>
+        </ul>
+        <li className="font-bold">Perubahan</li>
+        <ul className="list-none">
+          <li>Kami dapat memperbarui S&K dari waktu ke waktu. Versi terbaru berlaku sejak tanggal diperbarui.</li>
+        </ul>
+        <li className="font-bold">Kontak</li>
+        <ul className="list-none">
+          <li>Untuk pertanyaan terkait S&K, hubungi emailnyaartmedia@gmail.com.</li>
+        </ul>
+      </ol>
     </div>
   </Section>
 );
@@ -394,10 +482,10 @@ export default function ArtmediaDeveloperSite() {
             <select
               className="border rounded-xl px-3 py-2"
               value={route}
-              onChange={(e)=>onNavigate(e.target.value)}
+              onChange={(e) => onNavigate(e.target.value)}
             >
-              {["home","layanan","tentang","kontak","privacy","terms"].map(r => (
-                <option key={r} value={r}>{r.charAt(0).toUpperCase()+r.slice(1)}</option>
+              {["home", "layanan", "tentang", "kontak", "privacy", "terms"].map(r => (
+                <option key={r} value={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</option>
               ))}
             </select>
           </div>
