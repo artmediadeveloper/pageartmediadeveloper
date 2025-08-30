@@ -109,11 +109,12 @@ const LogoBar = () => (
   <Section id="logos">
     <div className="flex items-center justify-between gap-6 flex-wrap opacity-70">
       {[
-        { name: "Kehadiranmu", href: "https://github.com/dedyksuntoro/kehadiranmu" },
-        { name: "API Kehadiranmu", href: "https://github.com/dedyksuntoro/api_kehadiranmu" },
-        { name: "RainCast", href: "https://github.com/dedyksuntoro/raincast" },
-      { name: "Traccar Api", href: "https://pub.dev/packages/traccar_api" },
-      { name: "Notification Sniffer ", href: "https://pub.dev/packages/flutter_notification_sniffer" },
+        { name: "PesanUndangan.online", href: "https://pesanundangan.online" },
+        { name: "Aplikasi Kehadiran", href: "https://github.com/dedyksuntoro/kehadiranmu" },
+        { name: "API Aplikasi Kehadiran", href: "https://github.com/dedyksuntoro/api_kehadiranmu" },
+        { name: "Capture Notifikasi", href: "https://pub.dev/packages/flutter_notification_sniffer" },
+        { name: "Aplikasi Cuaca", href: "https://github.com/dedyksuntoro/raincast" },
+        { name: "API Aplikasi GPS", href: "https://pub.dev/packages/traccar_api" },
       ].map((brand) => (
       <a
         key={brand.name}
